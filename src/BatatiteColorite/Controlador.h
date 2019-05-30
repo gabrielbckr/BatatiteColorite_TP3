@@ -7,8 +7,9 @@ class Controlador
     double Kp = 0;
     double Kd = 0;
     double Ki = 0;
-    double erroAnterior = 0;
-    double somatorio = 0;
+    double TempoAnterior = 0;
+    double SomatorioErro = 0;
+    double ErroAnterior = 0;
     
     Controlador();
     

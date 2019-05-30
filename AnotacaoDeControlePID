@@ -1,0 +1,11 @@
+dt = (now - lastTIme)
+
+e = Goal - Input;
+
+errSum += e * dt; 
+dErr = (e - LastErr)
+
+output = kp*e + ki*errSum + kd*dErr;
+
+LastTime=now;
+lastErr=e;
