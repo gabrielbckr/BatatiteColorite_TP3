@@ -1,9 +1,7 @@
 #include "Encoder.h"
 
 
-int  Encoder::RetornaVoltas()
+float  Encoder::RetornaRPM()
 {
-	int voltasTemp = this->Voltas;
-	this->Voltas = 0;
-	return voltasTemp;
+	return 0.0;
 }

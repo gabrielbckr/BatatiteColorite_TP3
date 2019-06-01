@@ -5,7 +5,7 @@
 void setup(){
   
   Serial.begin(115200);
-  SETUP_MOVIMENTACAO();
+  // SETUP_MOVIMENTACAO();
  // Tunning(1,0,0);
 }
 

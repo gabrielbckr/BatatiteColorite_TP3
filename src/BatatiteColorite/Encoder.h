@@ -16,12 +16,12 @@ and the global service routine knows how to use the global variable.
 */
 class Encoder
 {
-	public:
 
 	int const Pino;
+	public:
 	int Voltas = 0;
 
-	Encoder(const int p){ Pino = p; }
+	Encoder(const int p):Pino(p){ }
 
 	void IncrementaVoltas() { Voltas++; }
 

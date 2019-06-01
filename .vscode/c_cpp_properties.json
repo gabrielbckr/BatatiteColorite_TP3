@@ -1,0 +1,36 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "/opt/arduino-1.8.8-linux64/arduino-1.8.8/libraries**",
+                "/opt/arduino-1.8.8-linux64/arduino-1.8.8/**",
+                "/opt/arduino-1.8.8-linux64/arduino-1.8.8/**",
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.17763.0",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "msvc-x64"
+        },
+        {
+            "name": "Linux",
+            "includePath": [
+                "/opt/arduino-1.8.8-linux64/arduino-1.8.8/tools/**",
+                "/opt/arduino-1.8.8-linux64/arduino-1.8.8/hardware/arduino/avr/**"
+            ],
+            "forcedInclude": [
+                "/opt/arduino-1.8.8-linux64/arduino-1.8.8/hardware/arduino/avr/cores/arduino/Arduino.h"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cppStandard": "c++17",
+            "cStandard": "c99"
+        }
+    ],
+    "version": 4
+}
