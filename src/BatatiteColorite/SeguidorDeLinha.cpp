@@ -1,0 +1,36 @@
+//--------------------------------------------------------------
+
+/// PASSAR CAMPOS ABAIXO PARA O CONFIGURACAO.H -> NÃO COLOQUEI AINDA PRA N COMPLICAR OS MERGES NO GIT
+
+#define LEFT_RPM 10 // ESSE VALOR NÃO FOI TESTADO, PROVAVELMENTE PRECISARÁ SER MODIFICADO
+#define RIGHT_RPM 10 // ESSE VALOR NÃO FOI TESTADO, PROVAVELMENTE PRECISARÁ SER MODIFICADO
+#define TURNING_FACTOR 0.5 // COEFICIENTE DE REDUÇÃO DE VELOCIDADE PARA A REALIZAÇÃO DA CURVA - VALOR TBM NÃO TESTADO
+
+//--------------------------------------------------------------------
+
+
+
+
+void SeguidorDeLinha (int esquerda, int direita){
+
+	anda();
+	if(esquerda > LIMIAR_LINHA && direita > LIMIAR_LINHA){
+
+		setControledRPMSpeed(LEFT_RPM, RIGHT_RPM); //SE OS DOIS ESTIVEREM DENTRO DA LINHA, O ROBO ANDARÁ PARA FRENTE
+
+	}else if(esquerda < LIMIAR_LINHA && direita > LIMIAR_LINHA){ // SE O LADO ESQUERDO ESTIVER FORA, O ROBO FARÁ UMA CURVA PARA DIREITA
+
+		setControledRPMSpeed(LEFT_RPM, RIGHT_RPM*TURNING_FACTOR);
+
+	}else if (esquerda > LIMIAR_LINHA && direita < LIMIAR_LINHA){ //ANALOGO AO ANTERIOR, 
+
+		setControledRPMSpeed(LEFT_RPM*TURNING_FACTOR, RIGHT_RPM);
+
+	}else { //SE OS 2 LADOS ESTIVEREM FORA DA LINHA O ROBO GIRA NO PRÓPRIO EIXO PROCURANDO UMA LINHA
+
+		setControledRPMSpeed(LEFT_RPM, -RIGHT_RPM);
+
+	}
+
+
+}
