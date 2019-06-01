@@ -5,10 +5,9 @@
 #include "Encoder.h"
 #include "Configuracao.h"
 
-Encoder encoderMotorEsquerda(LEFT_ENCODER_PIN);
-Encoder encoderMotorDireita(RIGHT_ENCODER_PIN);
-
-
+/* Move definitions to .cpp if you dont want instances to be available elsewhere*/
+static Encoder encoderMotorEsquerda(LEFT_ENCODER_PIN);
+static Encoder encoderMotorDireita(RIGHT_ENCODER_PIN);
 
 void SETUP_MOVIMENTACAO();
 

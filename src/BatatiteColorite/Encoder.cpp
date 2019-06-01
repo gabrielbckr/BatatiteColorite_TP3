@@ -15,3 +15,8 @@ float Encoder::CalculoVoltas(int v)
 {
 	return v/NUMERO_DE_INTERRUPCOES_POR_VOLTA;
 }
+
+Encoder::Encoder(int pino):Pino(pino)
+{
+	TempoDesdeUltimoConsumo = millis();
+}

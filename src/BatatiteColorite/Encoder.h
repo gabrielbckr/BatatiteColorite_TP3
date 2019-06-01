@@ -19,10 +19,10 @@ class Encoder
 	int const Pino;
 	int Voltas = 0;
 	int VoltasDuranteUltimoConsumo = 0;
-	double TempoDesdeUltimoConsumo = millis();
+	double TempoDesdeUltimoConsumo;
 	public:
 
-	Encoder(const int pino){};
+	Encoder(const int pino);
 
 	void IncrementaVoltas() { Voltas++; };
 

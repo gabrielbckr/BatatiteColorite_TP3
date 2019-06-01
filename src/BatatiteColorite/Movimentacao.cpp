@@ -1,17 +1,16 @@
-// tet
 #include "Movimentacao.h"
 #include "Configuracao.h"
 #include <Adafruit_MotorShield.h>
 #include "Controlador.h" 
 #include "Arduino.h"
 
-Adafruit_MotorShield AFMS = Adafruit_MotorShield();
-Adafruit_DCMotor *LEFT_MOTOR = AFMS.getMotor(LEFT_MOTOR_INPUT);
-Adafruit_DCMotor *RIGHT_MOTOR = AFMS.getMotor(RIGHT_MOTOR_INPUT);  
-Controlador controladorMotorDireita(1);  
-Controlador controladorMotorEsquerda(1); 
-// Encoder encoderMotorEsquerda(LEFT_ENCODER_PIN);
-// Encoder encoderMotorDireita(RIGHT_ENCODER_PIN);
+static Adafruit_MotorShield AFMS = Adafruit_MotorShield();
+static Adafruit_DCMotor *LEFT_MOTOR = AFMS.getMotor(LEFT_MOTOR_INPUT);
+static Adafruit_DCMotor *RIGHT_MOTOR = AFMS.getMotor(RIGHT_MOTOR_INPUT);  
+static Controlador controladorMotorDireita(1);  
+static Controlador controladorMotorEsquerda(1); 
+// static Encoder encoderMotorEsquerda(LEFT_ENCODER_PIN); 
+// static Encoder encoderMotorDireita(RIGHT_ENCODER_PIN);  
 
 void rightMotorInterruptHandler()
 {
