@@ -1,17 +1,9 @@
-//--------------------------------------------------------------
+#include "SeguidorDeLinha.h"
+#include "Movimentacao.h"
 
-/// PASSAR CAMPOS ABAIXO PARA O CONFIGURACAO.H -> NÃO COLOQUEI AINDA PRA N COMPLICAR OS MERGES NO GIT
+using namespace SeguidorDeLinha;
 
-#define LEFT_RPM 10 // ESSE VALOR NÃO FOI TESTADO, PROVAVELMENTE PRECISARÁ SER MODIFICADO
-#define RIGHT_RPM 10 // ESSE VALOR NÃO FOI TESTADO, PROVAVELMENTE PRECISARÁ SER MODIFICADO
-#define TURNING_FACTOR 0.5 // COEFICIENTE DE REDUÇÃO DE VELOCIDADE PARA A REALIZAÇÃO DA CURVA - VALOR TBM NÃO TESTADO
-
-//--------------------------------------------------------------------
-
-
-
-
-void SeguidorDeLinha (int esquerda, int direita){
+void Seguir (int esquerda, int direita){
 
 	anda();
 	if(esquerda > LIMIAR_LINHA && direita > LIMIAR_LINHA){

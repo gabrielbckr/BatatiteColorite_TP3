@@ -1,3 +1,12 @@
+#ifndef __SEGUIDOR_DE_LINHA__
+#define __SEGUIDOR_DE_LINHA__
+
 #include "Configuracao.h"
 
-void SeguidorDeLinha (int esquerda, int direita);
+namespace SeguidorDeLinha{
+
+    void Seguir (int esquerda, int direita);
+
+} 
+
+#endif
