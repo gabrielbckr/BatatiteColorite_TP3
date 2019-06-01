@@ -1,5 +1,3 @@
-#ifndef __ENCODER__TP__ROBOTICA__
-#define __ENCODER__TP__ROBOTICA__
 
 /*
 
