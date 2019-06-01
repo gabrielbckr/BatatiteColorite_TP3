@@ -1,4 +1,5 @@
-
+#ifndef __ENCODER__ROBOTICA_TP__
+#define __ENCODER__ROBOTICA_TP__
 /*
 
 https://forum.arduino.cc/index.php?topic=41713.msg303026#msg303026
@@ -16,8 +17,10 @@ class Encoder
 {
 
 	int const Pino;
-	public:
 	int Voltas = 0;
+	int VoltasDuranteUltimoConsumo = 0;
+	double TempoDesdeUltimoConsumo = millis();
+	public:
 
 	Encoder(const int pino){};
 
@@ -32,7 +35,10 @@ class Encoder
 	static float CalculoRPMdeVoltas(int);
 
 	int RetornaVolta(){return Voltas;}
+
+	float CalculoVoltas(int v);
 };
+
 
 
 #endif

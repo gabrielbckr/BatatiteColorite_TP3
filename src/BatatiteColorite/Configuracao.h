@@ -35,6 +35,11 @@ const int RIGHT_MOTOR_INPUT = 2;
 #define DEFAULT_LEFT_SPEED 148
 #define DEFAULT_RIGHT_SPEED 150
 
+/* ENCODER */ 
+#define NUMERO_DE_INTERRUPCOES_POR_VOLTA 6
+#define LEFT_ENCODER_PIN 21
+#define RIGHT_ENCODER_PIN 20
+
 /*     BOTOES LCD      */
 #define btnRIGHT  0
 #define btnUP     1

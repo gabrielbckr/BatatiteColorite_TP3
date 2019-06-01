@@ -10,8 +10,9 @@ class Controlador
     double TempoAnterior = 0;
     double SomatorioErro = 0;
     double ErroAnterior = 0;
+    public:
     
-    Controlador();
+    Controlador(double _Kp, double _Ki = 0 , double _Kd = 0);
     
     void Tunning(double _Kp, double _Ki = 0 , double _Kd = 0 );
 

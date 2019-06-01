@@ -1,15 +1,17 @@
-
-<<<<<<< HEAD
+#include "Encoder.h"
+#include "Configuracao.h"
+#include "Arduino.h"
 
 float Encoder::RetornaRPM()
 {
-	int voltasTemp = this->Voltas;
-	return this->CalculoRPMdeVoltas(voltasTemp);
+	double tempoAtual = millis();
+	double deltaTempo  = float(tempoAtual - this->TempoDesdeUltimoConsumo); 
+	float  deltaRotacoes = this->CalculoVoltas(this->Voltas - this->VoltasDuranteUltimoConsumo);
+	this->VoltasDuranteUltimoConsumo = this->Voltas;
+	return deltaRotacoes*60000.0/deltaTempo; 
 }
 
-float Encoder::CalculoRPMdeVoltas(int v)
+float Encoder::CalculoVoltas(int v)
 {
-	return 0.0;
+	return v/NUMERO_DE_INTERRUPCOES_POR_VOLTA;
 }
-=======
->>>>>>> 0c39ef21ff572a127d6c84c73de6f58ecf7ef9c0

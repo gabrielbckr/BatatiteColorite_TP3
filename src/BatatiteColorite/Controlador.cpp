@@ -1,11 +1,11 @@
 #include "Controlador.h" 
-#include "Arduino.h"
-
+#include "Configuracao.h"
 
 double Controlador::LeiDeControle(double erro){
 
   double now=millis();
   
+
   double dt = (now - this->TempoAnterior);
 
   this->SomatorioErro += erro * dt; 
@@ -21,6 +21,14 @@ double Controlador::LeiDeControle(double erro){
 
 
 void Controlador::Tunning(double _Kp, double _Ki = 0 , double _Kd = 0 ){
+
+  this->Kp = _Kp;
+  this->Ki = _Ki;
+  this->Kd = _Kd;
+  
+}
+
+Controlador::Controlador(double _Kp, double _Ki = 0 , double _Kd = 0 ){
 
   this->Kp = _Kp;
   this->Ki = _Ki;
