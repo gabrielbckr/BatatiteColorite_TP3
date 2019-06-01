@@ -21,15 +21,19 @@ class Encoder
 	public:
 	int Voltas = 0;
 
-	Encoder(const int p):Pino(p){ }
+	Encoder(const int pino){};
 
-	void IncrementaVoltas() { Voltas++; }
+	void IncrementaVoltas() { Voltas++; };
 
 	void operator++() { Voltas++; } 
 
 	float RetornaRPM();
 
 	void  ZeraVoltas()  { Voltas = 0; } 
+
+	static float CalculoRPMdeVoltas(int);
+
+	int RetornaVolta(){return Voltas;}
 };
 
 

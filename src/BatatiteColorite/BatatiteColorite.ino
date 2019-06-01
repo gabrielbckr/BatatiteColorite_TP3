@@ -1,23 +1,27 @@
 #include "Movimentacao.h"
 #include "Configuracao.h"
+#include "Encoder.h"
+
+Encoder primeiroEncoder = new Encoder(21);
+
+
+void func()
+{
+  primeiroEncoder.IncrementaVoltas();
+}
 
 
 void setup(){
   
   Serial.begin(115200);
-  // SETUP_MOVIMENTACAO();
- // Tunning(1,0,0);
+  attachInterrupt(digitalPinToInterrupt(21), func , RISING );
 }
 
 void loop(){
-  // TESTE CONTROLADOR
-  //double entrada = 1;
-  //double saida;
-
-  //erro = entrada - saida;
-  //LeiDeControle(erro);
-
-  Serial.println( analogRead(12));
   
-  
+  Serial.print("Ola, o valor atual ");
+  Serial.println( primeiroEncoder.RetornaVolta() );
+  delay(2000);
 }
+
+

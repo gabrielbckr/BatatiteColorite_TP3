@@ -2,5 +2,6 @@
     "programmer": "AVR ISP",
     "board": "arduino:avr:mega",
     "configuration": "cpu=atmega2560",
-    "sketch": "src/BatatiteColorite/BatatiteColorite.ino"
+    "sketch": "src/BatatiteColorite/BatatiteColorite.ino",
+    "port": "/dev/ttyACM0"
 }

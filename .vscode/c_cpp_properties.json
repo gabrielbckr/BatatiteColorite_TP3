@@ -3,9 +3,9 @@
         {
             "name": "Win32",
             "includePath": [
-                "/opt/arduino-1.8.8-linux64/arduino-1.8.8/libraries**",
-                "/opt/arduino-1.8.8-linux64/arduino-1.8.8/**",
-                "/opt/arduino-1.8.8-linux64/arduino-1.8.8/**",
+                "/opt/arduino/libraries**",
+                "/opt/arduino/**",
+                "/opt/arduino/**",
                 "${workspaceFolder}/**"
             ],
             "defines": [
@@ -21,11 +21,11 @@
         {
             "name": "Linux",
             "includePath": [
-                "/opt/arduino-1.8.8-linux64/arduino-1.8.8/tools/**",
-                "/opt/arduino-1.8.8-linux64/arduino-1.8.8/hardware/arduino/avr/**"
+                "/opt/tools/**",
+                "/opt/hardware/arduino/avr/**"
             ],
             "forcedInclude": [
-                "/opt/arduino-1.8.8-linux64/arduino-1.8.8/hardware/arduino/avr/cores/arduino/Arduino.h"
+                "/opt/arduino/hardware/arduino/avr/cores/arduino/Arduino.h"
             ],
             "compilerPath": "/usr/bin/gcc",
             "cppStandard": "c++17",
