@@ -24,5 +24,4 @@ void vira_esquerda(int d, int a);
 
 void vira_direita(int d, int a);
 
-
 #endif 
