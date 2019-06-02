@@ -37,8 +37,8 @@ const int RIGHT_MOTOR_INPUT = 2;
 
 /* ENCODER */ 
 #define NUMERO_DE_INTERRUPCOES_POR_VOLTA 6
-#define LEFT_ENCODER_PIN 21
-#define RIGHT_ENCODER_PIN 20
+#define LEFT_ENCODER_PIN 18
+#define RIGHT_ENCODER_PIN 19
 
 /*     BOTOES LCD      */
 #define btnRIGHT  0

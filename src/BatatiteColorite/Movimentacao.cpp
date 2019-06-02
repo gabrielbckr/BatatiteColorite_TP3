@@ -1,32 +1,32 @@
 #include "Movimentacao.h"
 #include "Configuracao.h"
-#include <Adafruit_MotorShield.h>
 #include "Controlador.h" 
 #include "Arduino.h"
 
-static Adafruit_MotorShield AFMS = Adafruit_MotorShield();
-static Adafruit_DCMotor *LEFT_MOTOR = AFMS.getMotor(LEFT_MOTOR_INPUT);
-static Adafruit_DCMotor *RIGHT_MOTOR = AFMS.getMotor(RIGHT_MOTOR_INPUT);  
-static Controlador controladorMotorDireita(1);  
-static Controlador controladorMotorEsquerda(1); 
+// Adafruit_MotorShield AFMS = Adafruit_MotorShield();
+// static Adafruit_DCMotor *LEFT_MOTOR = AFMS.getMotor(LEFT_MOTOR_INPUT);
+// static Adafruit_DCMotor *RIGHT_MOTOR = AFMS.getMotor(RIGHT_MOTOR_INPUT);  
+// static Controlador controladorMotorDireita(1);  
+// static Controlador controladorMotorEsquerda(1); 
 // static Encoder encoderMotorEsquerda(LEFT_ENCODER_PIN); 
 // static Encoder encoderMotorDireita(RIGHT_ENCODER_PIN);  
 
-void rightMotorInterruptHandler()
-{
-  encoderMotorEsquerda.IncrementaVoltas();
-}
 
-void leftMotorInterruptHandler()
-{
-  encoderMotorDireita.IncrementaVoltas();
-}
+// void rightMotorInterruptHandler()
+// {
+//   encoderMotorDireita.IncrementaVoltas();
+// }
+
+// void leftMotorInterruptHandler()
+// {
+//   encoderMotorEsquerda.IncrementaVoltas();
+// }
 
 void SETUP_MOVIMENTACAO(){
   AFMS.begin();
-  set_speed();
-  attachInterrupt(digitalPinToInterrupt(LEFT_ENCODER_PIN), leftMotorInterruptHandler , RISING );
-  attachInterrupt(digitalPinToInterrupt(RIGHT_ENCODER_PIN), rightMotorInterruptHandler , RISING );
+  //set_speed();
+  // attachInterrupt(digitalPinToInterrupt(LEFT_ENCODER_PIN), leftMotorInterruptHandler , RISING );
+  // attachInterrupt(digitalPinToInterrupt(RIGHT_ENCODER_PIN), rightMotorInterruptHandler , RISING );
 }
 
 
@@ -40,6 +40,7 @@ void anda(int d)
 {
   LEFT_MOTOR->run(LEFT_MOTOR_FORWARD );
   RIGHT_MOTOR->run(RIGHT_MOTOR_FORWARD);
+  delay(d);
 }
 
 void andaComDelay(int d)

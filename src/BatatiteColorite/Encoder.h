@@ -17,8 +17,8 @@ class Encoder
 {
 
 	int const Pino;
-	int Voltas = 0;
-	int VoltasDuranteUltimoConsumo = 0;
+	unsigned long int Voltas = 0;
+	unsigned long int VoltasDuranteUltimoConsumo = 0;
 	double TempoDesdeUltimoConsumo;
 	public:
 
