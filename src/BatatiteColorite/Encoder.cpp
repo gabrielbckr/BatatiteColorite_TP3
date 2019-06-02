@@ -4,16 +4,17 @@
 
 float Encoder::RetornaRPM()
 {
-	double tempoAtual = millis();
-	double deltaTempo  = float(tempoAtual - this->TempoDesdeUltimoConsumo); 
+	unsigned long int tempoAtual = millis();
+	unsigned long int deltaTempo  = float(tempoAtual - this->TempoDesdeUltimoConsumo); 
 	float  deltaRotacoes = this->CalculoVoltas(this->Voltas - this->VoltasDuranteUltimoConsumo);
 	this->VoltasDuranteUltimoConsumo = this->Voltas;
-	return deltaRotacoes*60000.0/deltaTempo; 
+	this->TempoDesdeUltimoConsumo = tempoAtual;
+	return deltaRotacoes*2075.26/float(deltaTempo); // 60000   88 
 }
 
 float Encoder::CalculoVoltas(int v)
 {
-	return v/NUMERO_DE_INTERRUPCOES_POR_VOLTA;
+	return float(v)/float(NUMERO_DE_INTERRUPCOES_POR_VOLTA);
 }
 
 Encoder::Encoder(int pino):Pino(pino)

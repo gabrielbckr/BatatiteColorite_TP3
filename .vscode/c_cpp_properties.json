@@ -21,8 +21,8 @@
         {
             "name": "Linux",
             "includePath": [
-                "/opt/tools/**",
-                "/opt/hardware/arduino/avr/**"
+                "/opt/arduino/tools/**",
+                "/opt/arduino/hardware/arduino/avr/**"
             ],
             "forcedInclude": [
                 "/opt/arduino/hardware/arduino/avr/cores/arduino/Arduino.h"
