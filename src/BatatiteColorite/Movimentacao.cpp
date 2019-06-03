@@ -84,7 +84,7 @@ void gira_sentido_antihorario(double t){
 }
 
 void set_speed(){
-  set_speed(DEFAULT_LEFT_SPEED, DEFAULT_RIGHT_SPEED );
+  set_speed(DEFAULT_LEFT__VOLT_SPEED, DEFAULT_RIGHT_VOLT_SPEED);
 }
 
 void set_speed(int left_speed, int right_speed ){
@@ -94,17 +94,17 @@ void set_speed(int left_speed, int right_speed ){
 
 void vira_esquerda(int d, int a){
   para();
-  set_speed(DEFAULT_LEFT_SPEED*a,DEFAULT_RIGHT_SPEED);
+  set_speed(DEFAULT_LEFT_LINEAR_SPEED*a,DEFAULT_RIGHT_LINEAR_SPEED);
   anda(d);
-  set_speed(DEFAULT_LEFT_SPEED,DEFAULT_RIGHT_SPEED);
+  set_speed(DEFAULT_LEFT_LINEAR_SPEED,DEFAULT_RIGHT_LINEAR_SPEED);
 
 }
 
 void vira_direita(int d, int a){
   para();
-  set_speed(DEFAULT_LEFT_SPEED,DEFAULT_RIGHT_SPEED*a);
+  set_speed(DEFAULT_LEFT_LINEAR_SPEED,DEFAULT_RIGHT_LINEAR_SPEED*a);
   anda(d);
-  set_speed(DEFAULT_LEFT_SPEED,DEFAULT_RIGHT_SPEED);
+  set_speed(DEFAULT_LEFT_LINEAR_SPEED,DEFAULT_LINEAR_RIGHT_SPEED);
 
 }
 
