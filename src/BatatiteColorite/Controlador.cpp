@@ -3,7 +3,7 @@
 
 double Controlador::LeiDeControle(double erro){
 
-  double now=millis();
+  unsigned long now=millis();
   
 
   double dt = (now - this->TempoAnterior);

@@ -7,7 +7,7 @@ class Controlador
     double Kp = 0;
     double Kd = 0;
     double Ki = 0;
-    double TempoAnterior = 0;
+    unsigned long TempoAnterior = 0;
     double SomatorioErro = 0;
     double ErroAnterior = 0;
     public:

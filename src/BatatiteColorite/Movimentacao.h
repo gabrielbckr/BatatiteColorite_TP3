@@ -20,7 +20,7 @@ void SETUP_MOVIMENTACAO();
 
 void para();
 
-void andaComDelay(int d);
+void andaComDelay(unsigned long d);
 
 void anda();
 

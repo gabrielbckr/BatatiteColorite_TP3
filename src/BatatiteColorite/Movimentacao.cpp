@@ -43,7 +43,7 @@ void anda(int d)
   delay(d);
 }
 
-void andaComDelay(int d)
+void andaComDelay(unsigned long d)
 {
   double tempoInicio = millis();
   anda();
