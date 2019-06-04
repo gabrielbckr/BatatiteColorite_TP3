@@ -83,7 +83,7 @@ void Tarefas::ProcuraMaximo()
 {
   Localizacao localizacao(DIFERENTIAL_SENSOR_PIN);
   LEFT_MOTOR->run(LEFT_MOTOR_FORWARD);
-  RIGHT_MOTOR->run(RIGHT_MOTOR_BACKWARD);
+  RIGHT_MOTOR->run(RIGHT_MOTOR_FORWARD);
   while(true){
     // controla velocidade
     if (localizacao.EstaAlinhado())

@@ -89,35 +89,7 @@ void setup(){
 
 void loop()
 {
-  // int ldr = analogRead(DIFERENTIAL_SENSOR_PIN);
-  // String values = String(left) + " " + String(right) + "      ";
-  // lcd.setCursor(0, 0);
-  // lcd.print(values);
-  int button = read_LCD_buttons();
-  if (button == btnRIGHT || button == btnUP)
-  {
-    state = 0;
-    lcd.clear();
-    lcd.setCursor(0, 1);
-    lcd.print("Parado");
-    delay(200);
-    para();
-  } else if (button == btnLEFT || button == btnDOWN)
-  {
-    state = 1;
-    lcd.clear();
-    lcd.setCursor(0, 1);
-    lcd.print("Rodando");
-    delay(200);
-    anda(0);
-    Tarefas::ProcuraMaximo();
-  }
-  if (state){
-    task();
-  }
-  //if (state){
-  //  task();
-  //}
+  Menu();
 }
 
 
