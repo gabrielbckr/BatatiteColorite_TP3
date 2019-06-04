@@ -21,6 +21,8 @@ void leftMotorInterruptHandler()
   encoderMotorEsquerda.IncrementaVoltas();
 }
 
+int state = 0;
+
 int read_LCD_buttons() {
   int adc_key_in = analogRead(0);      // read the value from the sensor
   if (adc_key_in > 1000) return btnNONE; // We make this the 1st option for speed reasons since it will be the most likely result
@@ -36,6 +38,11 @@ int read_LCD_buttons() {
 
 //unsigned long tempoAntes = 0;
 
+void task(){
+  Tarefas::ExploraAmbiente();
+  delay(10);
+}
+
 void setup(){
   
   lcd.begin(16, 2);  
@@ -47,8 +54,8 @@ void setup(){
   attachInterrupt(digitalPinToInterrupt(LEFT_ENCODER_PIN), leftMotorInterruptHandler , RISING );
   attachInterrupt(digitalPinToInterrupt(RIGHT_ENCODER_PIN), rightMotorInterruptHandler , RISING );
   SETUP_MOVIMENTACAO();
-  //LEFT_MOTOR->setSpeed(DEFAULT_LEFT_PWM_SPEED);
-  //RIGHT_MOTOR->setSpeed(DEFAULT_RIGHT_PWM_SPEED);
+  LEFT_MOTOR->setSpeed(DEFAULT_LEFT_PWM_SPEED);
+  RIGHT_MOTOR->setSpeed(DEFAULT_RIGHT_PWM_SPEED);
 
   //Tarefas::ExploraAmbiente();
   //Tarefas::ProcuraMaximo();
@@ -60,6 +67,7 @@ void loop()
   int button = read_LCD_buttons();
   if (button == btnRIGHT || button == btnUP)
   {
+    state = 0;
     lcd.clear();
     lcd.setCursor(0, 1);
     lcd.print("Parado");
@@ -67,13 +75,15 @@ void loop()
     para();
   } else if (button == btnLEFT || button == btnDOWN)
   {
+    state = 1;
     lcd.clear();
     lcd.setCursor(0, 1);
     lcd.print("Rodando");
     delay(200);
-    LEFT_MOTOR->setSpeed(DEFAULT_LEFT_PWM_SPEED);
-    RIGHT_MOTOR->setSpeed(DEFAULT_RIGHT_PWM_SPEED);
     anda(0);
-    Tarefas::ExploraAmbiente();
+    task();
+  }
+  if (state){
+    task();
   }
 }
