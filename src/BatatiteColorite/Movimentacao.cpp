@@ -116,8 +116,8 @@ double rightVelocityConstrainting(double desired)
 void setControledRPMSpeed(int leftSpeed, int rightSpeed )
 {
 
-  int erroEsquerda = leftSpeed - encoderMotorDireita.RetornaRPM(); 
-  int erroDireita = rightSpeed - encoderMotorDireita.RetornaRPM() ;
+  int erroEsquerda = leftSpeed - encoderMotorDireita.RetornaRPM();
+  int erroDireita = rightSpeed - encoderMotorDireita.RetornaRPM();
   int leftVelocityOutput  = controladorMotorEsquerda.LeiDeControle(erroEsquerda);
   int rightVelocityOutput = controladorMotorDireita.LeiDeControle(erroDireita);
   LEFT_MOTOR->setSpeed(leftVelocityConstrainting(leftVelocityOutput));

@@ -42,7 +42,7 @@ bool Localizacao::EstaAlinhado()
         sinalAnterior = readings[this->readIndex -1];
     }
     
-    if( RetornaSinal() < sinalAnterior)
+    if( this->RetornaSinal() < sinalAnterior)
     {
         return true;
     }
