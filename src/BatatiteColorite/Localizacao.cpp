@@ -32,10 +32,7 @@ int Localizacao::RetornaSinal()
 
 bool Localizacao::EstaAlinhado()
 {
-    Serial.print("value =  ");
-    Serial.print(value); // DEBUG
-    Serial.print("sig =  ");
-    Serial.print(sig); // DEBUG
+    int sinalAnterior = 0;
     if (this->readIndex == 0)
     {
         sinalAnterior = readings[19];
