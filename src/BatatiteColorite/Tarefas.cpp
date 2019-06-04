@@ -45,31 +45,31 @@ void Tarefas::ex4() {
 void Tarefas::AlinhaComLampada(){}
 
 void Tarefas::PercorreLinha(int dist){
-  andaComDelay(dist);
+  anda(dist);
   gira_sentido_horario(12);
-  andaComDelay(dist);
+  anda(dist);
   gira_sentido_horario(12);
   para();
 }
 
 void Tarefas::PercorreQuadrado(int dist){
-  andaComDelay(dist);
+  anda(dist);
   gira_sentido_horario(6);
-  andaComDelay(dist);
+  anda(dist);
   gira_sentido_horario(6);
-  andaComDelay(dist);
+  anda(dist);
   gira_sentido_horario(6);
-  andaComDelay(dist);
+  anda(dist);
   gira_sentido_horario(6);
   para();
 }
 
 void Tarefas::PercorreTriangulo(int dist){
-  andaComDelay(dist);
+  anda(dist);
   gira_sentido_horario(6);
-  andaComDelay(dist);
+  anda(dist);
   gira_sentido_horario(9);
-  andaComDelay(int(dist*1.4));
+  anda(int(dist*1.4));
   gira_sentido_horario(9);
   para();
 }
