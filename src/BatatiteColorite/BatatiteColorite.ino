@@ -38,10 +38,12 @@ void setup(){
   TestePH2();*/
   long int now = millis();
 
+  LEFT_MOTOR->run(LEFT_MOTOR_FORWARD);
+  RIGHT_MOTOR->run(RIGHT_MOTOR_FORWARD);
   while(millis()-now <15000)
   {
-    setSpeedWithHisteresis(50, 50);
-    
+    setSpeedWithHisteresis(3, 30);
+    delay(5);
   }
   
 
