@@ -33,7 +33,7 @@ void SETUP_MOVIMENTACAO(){
 void para(){
   LEFT_MOTOR->run(RELEASE);
   RIGHT_MOTOR->run(RELEASE);
-  delay(100);
+  delay(1);
 }
 
 void anda(int d)

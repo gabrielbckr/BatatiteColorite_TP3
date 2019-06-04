@@ -64,10 +64,10 @@ void setup(){
 
 void loop()
 {
-  int ldr = analogRead(DIFERENTIAL_SENSOR_PIN);
-  String values = String(left) + " " + String(right) + "      ";
-  lcd.setCursor(0, 0);
-  lcd.print(values);
+  // int ldr = analogRead(DIFERENTIAL_SENSOR_PIN);
+  // String values = String(left) + " " + String(right) + "      ";
+  // lcd.setCursor(0, 0);
+  // lcd.print(values);
   int button = read_LCD_buttons();
   if (button == btnRIGHT || button == btnUP)
   {

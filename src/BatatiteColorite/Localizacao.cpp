@@ -19,20 +19,23 @@ int Localizacao::RetornaSinal()
     int sig =  analogRead(this->Pino) - LIMIAR_DE_MODULARIZACAO;
     sig = (sig <= 0) ? -sig:sig;
 
-    Serial.println(sig); // DEBUG
     this->readings[this->readIndex] = sig;
     this->total = this->total + this->readings[this->readIndex];
     this->readIndex++;  
     if (this->readIndex >= this->numReadings) {
         this->readIndex = 0;
     }
-    return this->total / this->numReadings;
+    float value = float(this->total) / float(this->numReadings);
+    return value;
 }
 
 
 bool Localizacao::EstaAlinhado()
 {
-    int sinalAnterior = 0 ;
+    Serial.print("value =  ");
+    Serial.print(value); // DEBUG
+    Serial.print("sig =  ");
+    Serial.print(sig); // DEBUG
     if (this->readIndex == 0)
     {
         sinalAnterior = readings[19];
