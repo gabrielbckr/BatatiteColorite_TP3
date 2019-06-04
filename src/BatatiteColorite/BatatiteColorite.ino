@@ -218,14 +218,40 @@ void Menu(){
         delay(btnDELAY);
       }
       else if (button == btnSELECT){
+        int dist = selecionaDistancia();
         lcd.setCursor(0,0);
         lcd.print("Quadr. em exec. ");
         lcd.setCursor(0,1);
         lcd.print("                ");
-        Tarefas::PercorreQuadrado(10);
+        Tarefas::PercorreQuadrado(dist);
         menu_state = LOC_3;
         delay(btnDELAY);
       }
       break;
+  }
+}
+
+
+
+int selecionaDistancia()
+{
+  int dist = 0 ;
+  while(true){
+    int button = read_LCD_buttons();
+    lcd.setCursor(0,0);
+    lcd.print("Escolhe Dist");
+    lcd.setCursor(0,1);
+    lcd.print(dist);
+    if (button == btnSELECT){
+      return dist;
+    }
+    if(button == btnUP){
+    
+      dist+=1;
+    }
+    else if(button == btnDOWN){
+      dist-=1;
+    }
+    delay(300);
   }
 }
