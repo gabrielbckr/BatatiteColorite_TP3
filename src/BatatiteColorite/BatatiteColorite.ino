@@ -7,8 +7,8 @@
 LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 
 int cont = 0;
-int rightVelocityOutput=0;
-int leftVelocityOutput=0;
+double rightVelocityOutput=0;
+double leftVelocityOutput=0;
 
 void rightMotorInterruptHandler()
 {
@@ -34,6 +34,8 @@ void setup(){
   LEFT_MOTOR->setSpeed(DEFAULT_LEFT__VOLT_SPEED);
   RIGHT_MOTOR->setSpeed(DEFAULT_LEFT__VOLT_SPEED);
 
+
+  TestePH2();
 } 
 
 void testeDeControle( )
@@ -77,49 +79,51 @@ void controlaRPM(double rightSpeed, double leftSpeed){
     double velEsq = encoderMotorEsquerda.RetornaRPM() ;
     double erroDireita = rightSpeed - velDir;
     double erroEsquerda = leftSpeed - velEsq;
+    float Kp = 4;
+    Serial.println(leftSpeed); 
+    Serial.print("leftSpeed");
+    Serial.println(velEsq); 
+    Serial.print("velocity antes eh");
+    Serial.println(leftVelocityOutput);
+    Serial.print("o erro eh");
+    Serial.println(erroEsquerda);
+    rightVelocityOutput = rightVelocityOutput +(erroDireita* Kp);
+
+    leftVelocityOutput =  leftVelocityOutput + (erroEsquerda* Kp);
     
+    /*
     if (erroDireita > 0.0){
       if(erroDireita > rightSpeed*0.1){
         rightVelocityOutput=rightVelocityOutput+10;
       }
-      rightVelocityOutput=rightVelocityOutput+(erroDireita*6);
+      rightVelocityOutput=rightVelocityOutput+(erroDireita* Kp);
     } else {
+  
       if(erroDireita*(-1) > rightSpeed*0.1){
         rightVelocityOutput=rightVelocityOutput-10;
       }
-      rightVelocityOutput=rightVelocityOutput-(erroDireita*6);
+      rightVelocityOutput=rightVelocityOutput+(erroDireita* Kp);
     }
 
     if (erroEsquerda > 0.0){
       if(erroEsquerda > leftSpeed*0.1){
         leftVelocityOutput=leftVelocityOutput+10;
       }
-      leftVelocityOutput=leftVelocityOutput+(erroEsquerda*6);
+      leftVelocityOutput=leftVelocityOutput+(erroEsquerda* Kp);
     } else {
       if(erroEsquerda*(-1) > leftSpeed*0.1){
         leftVelocityOutput=leftVelocityOutput-10;
       }
-      leftVelocityOutput=leftVelocityOutput-(erroEsquerda*6);
+      leftVelocityOutput=leftVelocityOutput+(erroEsquerda* Kp);
     }
-
+    */
+    Serial.print("velocity eh");
+    Serial.println(leftVelocityOutput);
     RIGHT_MOTOR->setSpeed(rightVelocityOutput);
     LEFT_MOTOR->setSpeed(leftVelocityOutput);
-    
-    lcd.setCursor(0, 0);
-    lcd.print("              ");
-    lcd.setCursor(0, 0);
-    lcd.print(velEsq);
-    lcd.setCursor(7, 0);
-    lcd.print(velDir);
-    lcd.setCursor(0, 1);
-    lcd.print("              ");
-    lcd.setCursor(0, 1);
-    lcd.print(erroEsquerda);
-    lcd.setCursor(7, 1);
-    lcd.print(erroDireita);
-    delay(10);
+   
  // }
-
+delay(500);
 }
 
 void TestePH2(){
@@ -133,23 +137,21 @@ void TestePH2(){
   
   long int now = millis();
 
-  int rightVelocityOutput = 0;
-  int leftVelocityOutput = 0;
 
   int limite = 400;
-  int velGeral = 2;
+  double velGeral = 3;
 
   while(millis() - now < 15000){
-  int blwhEsq = analogRead(12);
-  int blwhDir = analogRead(13);
-  controlaRPM(velGeral, velGeral);
-  if (blwhEsq < limite && blwhDir < limite){
+    int blwhEsq = analogRead(12);
+    int blwhDir = analogRead(13);
+
+    if (blwhEsq < limite && blwhDir < limite){
       controlaRPM(velGeral, velGeral);
-  }else if(blwhEsq > limite && blwhDir < limite){
+    }else if(blwhEsq > limite && blwhDir < limite){
       controlaRPM(velGeral,velGeral*0.7);
-  }else if(blwhEsq < limite && blwhDir > limite){
+    }else if(blwhEsq < limite && blwhDir > limite){
       controlaRPM(velGeral*0.7 ,velGeral);
-  }else{
+    }else{
       controlaRPM(velGeral,-velGeral);   
   }
     lcd.setCursor(0, 0);
@@ -173,5 +175,4 @@ void TestePH2(){
 
 void loop()
 {
-  TestePH2();
 }
