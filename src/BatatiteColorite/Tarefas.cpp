@@ -4,6 +4,42 @@
 #include "Localizacao.h"
 #include "Tarefas.h"
 
+void Tarefas::ex1() {
+  anda(30);
+  gira_sentido_horario(12);
+  anda(30);
+  gira_sentido_horario(12);
+  para();
+}
+
+void Tarefas::ex2() {
+  anda(30);
+  gira_sentido_horario(6);
+  anda(30);
+  gira_sentido_horario(9);
+  anda(42);
+  gira_sentido_horario(9);
+  para();
+}
+
+void Tarefas::ex3() {
+  anda(30);
+  gira_sentido_horario(6);
+  anda(30);
+  gira_sentido_horario(6);
+  anda(30);
+  gira_sentido_horario(6);
+  anda(30);
+  gira_sentido_horario(6);
+  para();
+}
+
+void Tarefas::ex4() {
+  gira_sentido_horario(12);
+  delay(1000);
+  gira_sentido_horario(6);
+}
+
 
 void Tarefas::AlinhaComLampada(){}
 
