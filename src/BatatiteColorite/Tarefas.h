@@ -14,7 +14,7 @@ namespace Tarefas {
 	
 	void ExploraAmbiente();
 	
-    void ProcuraMaximo(Localizacao L);
+    void ProcuraMaximo();
 }
 
 
