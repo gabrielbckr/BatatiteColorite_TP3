@@ -32,8 +32,8 @@ void setup(){
   attachInterrupt(digitalPinToInterrupt(LEFT_ENCODER_PIN), leftMotorInterruptHandler , RISING );
   attachInterrupt(digitalPinToInterrupt(RIGHT_ENCODER_PIN), rightMotorInterruptHandler , RISING );
   SETUP_MOVIMENTACAO();
-  LEFT_MOTOR->setSpeed(DEFAULT_LEFT__VOLT_SPEED);
-  RIGHT_MOTOR->setSpeed(DEFAULT_LEFT__VOLT_SPEED);
+  LEFT_MOTOR->setSpeed(DEFAULT_LEFT_PWM_SPEED);
+  RIGHT_MOTOR->setSpeed(DEFAULT_RIGHT_PWM_SPEED);
 
   Tarefas::ExploraAmbiente();
   //Tarefas::ProcuraMaximo();

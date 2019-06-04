@@ -84,7 +84,7 @@ void gira_sentido_antihorario(double t){
 }
 
 void set_speed(){
-  set_speed(DEFAULT_LEFT__VOLT_SPEED, DEFAULT_RIGHT_VOLT_SPEED);
+  set_speed(DEFAULT_LEFT_PWM_SPEED, DEFAULT_RIGHT_PWM_SPEED);
 }
 
 void set_speed(int left_speed, int right_speed ){
