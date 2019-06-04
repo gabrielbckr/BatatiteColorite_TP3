@@ -1,4 +1,4 @@
-#ifndef __COLORFUL_MOVIMENTACAO__
+  #ifndef __COLORFUL_MOVIMENTACAO__
 #define __COLORFUL_MOVIMENTACAO__
 
 
@@ -41,6 +41,14 @@ void vira_esquerda(int d, int a);
 void vira_direita(int d, int a);
 
 void setControledRPMSpeed(int , int);
+
+void setControledLinearSpeed(int leftSpeed, int rightSpeed );
+
+
+double rightVelocityConstrainting(double desired);
+
+
+double leftVelocityConstrainting(double desired);
 
 // void leftMotorInterruptHandler();
 

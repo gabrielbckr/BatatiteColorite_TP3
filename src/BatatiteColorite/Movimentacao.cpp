@@ -104,8 +104,20 @@ void vira_direita(int d, int a){
   para();
   set_speed(DEFAULT_LEFT_LINEAR_SPEED,DEFAULT_RIGHT_LINEAR_SPEED*a);
   anda(d);
-  set_speed(DEFAULT_LEFT_LINEAR_SPEED,DEFAULT_LINEAR_RIGHT_SPEED);
+  set_speed(DEFAULT_LEFT_LINEAR_SPEED,DEFAULT_RIGHT_LINEAR_SPEED);
 
+}
+
+double leftVelocityConstrainting(double desired)
+{
+  desired = desired > 255 ? 255: desired;
+  return desired = desired > MIN_LEFT_VELOCITY  ? MIN_LEFT_VELOCITY  : desired;
+}
+
+double rightVelocityConstrainting(double desired)
+{
+  desired = desired > 255 ? 255: desired;
+  return desired = desired > MIN_RIGHT_VELOCITY  ? MIN_RIGHT_VELOCITY  : desired;
 }
 
 void setControledRPMSpeed(int leftSpeed, int rightSpeed )
@@ -115,7 +127,17 @@ void setControledRPMSpeed(int leftSpeed, int rightSpeed )
   int erroDireita = rightSpeed - encoderMotorDireita.RetornaRPM() ;
   int leftVelocityOutput  = controladorMotorEsquerda.LeiDeControle(erroEsquerda);
   int rightVelocityOutput = controladorMotorDireita.LeiDeControle(erroDireita);
-  LEFT_MOTOR->setSpeed(leftVelocityOutput);
-  RIGHT_MOTOR->setSpeed(rightVelocityOutput);
+  LEFT_MOTOR->setSpeed(leftVelocityConstrainting(leftVelocityOutput));
+  RIGHT_MOTOR->setSpeed(rightVelocityConstrainting(rightVelocityOutput));
 }
 
+void setControledLinearSpeed(int leftSpeed, int rightSpeed ) // 1916.92 * 88.0 / 60000.0 
+{
+
+  int erroEsquerda = leftSpeed - encoderMotorDireita.RetornaRPM(); 
+  int erroDireita = rightSpeed - encoderMotorDireita.RetornaRPM() ;
+  int leftVelocityOutput  = controladorMotorEsquerda.LeiDeControle(erroEsquerda);
+  int rightVelocityOutput = controladorMotorDireita.LeiDeControle(erroDireita);
+  LEFT_MOTOR->setSpeed(leftVelocityConstrainting(leftVelocityOutput));
+  RIGHT_MOTOR->setSpeed(rightVelocityConstrainting(rightVelocityOutput));
+}

@@ -9,7 +9,7 @@ float Encoder::RetornaRPM()
 	float  deltaRotacoes = this->CalculoVoltas(this->Voltas - this->VoltasDuranteUltimoConsumo);
 	this->VoltasDuranteUltimoConsumo = this->Voltas;
 	this->TempoDesdeUltimoConsumo = tempoAtual;
-	return deltaRotacoes*2075.26/float(deltaTempo); // 60000   88 
+	return deltaRotacoes*60000.0/88.0/float(deltaTempo); // 60000   88 // 1916.92
 }
 
 float Encoder::CalculoVoltas(int v)
