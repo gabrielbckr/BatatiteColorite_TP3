@@ -44,11 +44,11 @@ void setControledRPMSpeed(int , int);
 
 void setControledLinearSpeed(int leftSpeed, int rightSpeed );
 
-
 double rightVelocityConstrainting(double desired);
 
-
 double leftVelocityConstrainting(double desired);
+
+void setSpeedWithHisteresis(int desiredLeftSpeed, int desiredRightSpeed);
 
 // void leftMotorInterruptHandler();
 

@@ -43,12 +43,6 @@ void anda(int d)
   delay(d);
 }
 
-void andaComDelay(unsigned long d)
-{
-  double tempoInicio = millis();
-  anda();
-  while(millis() - tempoInicio < d);
-}
 
 void andaReComDelay()
 {
@@ -140,4 +134,26 @@ void setControledLinearSpeed(int leftSpeed, int rightSpeed ) // 1916.92 * 88.0 /
   int rightVelocityOutput = controladorMotorDireita.LeiDeControle(erroDireita);
   LEFT_MOTOR->setSpeed(leftVelocityConstrainting(leftVelocityOutput));
   RIGHT_MOTOR->setSpeed(rightVelocityConstrainting(rightVelocityOutput));
+}
+
+
+void setSpeedWithHisteresis(int desiredLeftSpeed, int desiredRightSpeed)
+{
+  if (encoderMotorEsquerda.RetornaRPM() > desiredLeftSpeed)
+  {
+    LEFT_MOTOR->setSpeed(0);
+  }
+  else
+  {
+    LEFT_MOTOR->setSpeed(255);
+  }
+  if (encoderMotorDireita.RetornaRPM() > desiredRightSpeed)
+  {
+    RIGHT_MOTOR->setSpeed(0);
+  }
+  else
+  {
+    RIGHT_MOTOR->setSpeed(255s);
+  }
+
 }
