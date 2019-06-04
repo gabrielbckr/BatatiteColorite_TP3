@@ -81,7 +81,7 @@ void loop()
     lcd.print("Rodando");
     delay(200);
     anda(0);
-    task();
+    Tarefas::ProcuraMaximo();
   }
   if (state){
     task();
