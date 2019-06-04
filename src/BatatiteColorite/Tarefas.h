@@ -14,11 +14,11 @@ namespace Tarefas {
 
 	void AlinhaComLampada();
 	
-	void PercorreLinha();
+	void PercorreLinha(int dist);
 	
-	void PercorreQuadrado();
+	void PercorreQuadrado(int dist);
 	
-	void PercorreTriangulo();
+	void PercorreTriangulo(int dist);
 	
 	void ExploraAmbiente();
 	

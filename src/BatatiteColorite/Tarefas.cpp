@@ -41,13 +41,38 @@ void Tarefas::ex4() {
 }
 
 
+
 void Tarefas::AlinhaComLampada(){}
 
-void Tarefas::PercorreLinha(){}
+void Tarefas::PercorreLinha(int dist){
+  andaComDelay(dist);
+  gira_sentido_horario(12);
+  andaComDelay(dist);
+  gira_sentido_horario(12);
+  para();
+}
 
-void Tarefas::PercorreQuadrado(){}
+void Tarefas::PercorreQuadrado(int dist){
+  andaComDelay(dist);
+  gira_sentido_horario(6);
+  andaComDelay(dist);
+  gira_sentido_horario(6);
+  andaComDelay(dist);
+  gira_sentido_horario(6);
+  andaComDelay(dist);
+  gira_sentido_horario(6);
+  para();
+}
 
-void Tarefas::PercorreTriangulo(){}
+void Tarefas::PercorreTriangulo(int dist){
+  andaComDelay(dist);
+  gira_sentido_horario(6);
+  andaComDelay(dist);
+  gira_sentido_horario(9);
+  andaComDelay(int(dist*1.4));
+  gira_sentido_horario(9);
+  para();
+}
 
 void Tarefas::ExploraAmbiente(){
   SeguidorDeLinha::Seguir(analogRead(LEFT_LINE_SENSOR_PIN), analogRead(RIGHT_LINE_SENSOR_PIN));
