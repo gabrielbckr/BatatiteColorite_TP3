@@ -64,11 +64,10 @@ void setup(){
 
 void loop()
 {
-  /*int left = analogRead(LEFT_LINE_SENSOR_PIN);
-  int right = analogRead(RIGHT_LINE_SENSOR_PIN);
+  int ldr = analogRead(DIFERENTIAL_SENSOR_PIN);
   String values = String(left) + " " + String(right) + "      ";
   lcd.setCursor(0, 0);
-  lcd.print(values);*/
+  lcd.print(values);
   int button = read_LCD_buttons();
   if (button == btnRIGHT || button == btnUP)
   {
@@ -85,10 +84,11 @@ void loop()
     lcd.setCursor(0, 1);
     lcd.print("Rodando");
     delay(200);
-    anda(0);
-    task();
+    Tarefas::ProcuraMaximo();
+    //anda(0);
+    //task();
   }
-  if (state){
-    task();
-  }
+  //if (state){
+  //  task();
+  //}
 }

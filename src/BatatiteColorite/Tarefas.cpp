@@ -57,12 +57,13 @@ void Tarefas::ExploraAmbiente(){
 void Tarefas::ProcuraMaximo()
 {
   Localizacao localizacao(DIFERENTIAL_SENSOR_PIN);
-  LEFT_MOTOR->run(LEFT_MOTOR_FORWARD);
-  RIGHT_MOTOR->run(RIGHT_MOTOR_FORWARD);
+  LEFT_MOTOR->run(LEFT_MOTOR_FORWARD/2.0);
+  RIGHT_MOTOR->run(RIGHT_MOTOR_BACKWARD/2.0);
   while(true){
     // controla velocidade
     if (localizacao.EstaAlinhado())
     {
+      para();
       return;
     }
   }
