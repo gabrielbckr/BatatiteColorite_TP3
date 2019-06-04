@@ -42,7 +42,7 @@ void setup(){
   RIGHT_MOTOR->run(RIGHT_MOTOR_FORWARD);
   while(millis()-now <15000)
   {
-    setSpeedWithHisteresis(3, 30);
+    setSpeedWithHisteresis(3, 3);
     delay(5);
   }
   

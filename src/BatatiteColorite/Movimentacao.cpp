@@ -141,7 +141,10 @@ void setSpeedWithHisteresis(float desiredLeftSpeed, float desiredRightSpeed)
 {
   float velocidadeEsquerda =encoderMotorEsquerda.RetornaRPM();
   float velocidadeDireita = encoderMotorDireita.RetornaRPM(); 
-
+  Serial.print("dir = ");
+  Serial.print(velocidadeDireita);
+  Serial.print(" esq = ");
+  Serial.println(velocidadeDireita);
   if (velocidadeEsquerda> desiredLeftSpeed)
   {
     LEFT_MOTOR->setSpeed(0);
