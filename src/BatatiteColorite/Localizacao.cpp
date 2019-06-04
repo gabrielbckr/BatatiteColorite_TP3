@@ -1,5 +1,7 @@
 #include "Localizacao.h"
 #include "Arduino.h"
+#include "Movimentacao.h"
+#include "Configuracao.h"
 
 #define LIMIAR_DE_MODULARIZAO 500
 
@@ -47,17 +49,4 @@ bool Localizacao::EstaAlinhado()
         return false;
     }
     
-}
-
-void Localizacao::ProcuraMaximo()
-{
-  LEFT_MOTOR->run(LEFT_MOTOR_FORWARD);
-  RIGHT_MOTOR->run(RIGHT_MOTOR_BACKWARD);
-  while(true){
-    // controla velocidade
-    if (diferencial.EstaAlinhado())
-    {
-      return;
-    }
-  }
 }

@@ -11,7 +11,6 @@ public:
     Localizacao(int pino);
     int RetornaSinal();
     bool EstaAlinhado();
-    void ProcuraMaximo();
 };
 
 #endif
