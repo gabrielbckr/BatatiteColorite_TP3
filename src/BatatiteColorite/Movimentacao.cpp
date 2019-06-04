@@ -137,7 +137,7 @@ void setControledLinearSpeed(int leftSpeed, int rightSpeed ) // 1916.92 * 88.0 /
 }
 
 
-void setSpeedWithHisteresis(int desiredLeftSpeed, int desiredRightSpeed)
+void setSpeedWithHisteresis(float desiredLeftSpeed, float desiredRightSpeed)
 {
   float velocidadeEsquerda =encoderMotorEsquerda.RetornaRPM();
   float velocidadeDireita = encoderMotorDireita.RetornaRPM(); 

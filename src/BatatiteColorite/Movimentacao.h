@@ -48,7 +48,7 @@ double rightVelocityConstrainting(double desired);
 
 double leftVelocityConstrainting(double desired);
 
-void setSpeedWithHisteresis(int desiredLeftSpeed, int desiredRightSpeed);
+void setSpeedWithHisteresis(float desiredLeftSpeed, float desiredRightSpeed);
 
 // void leftMotorInterruptHandler();
 
