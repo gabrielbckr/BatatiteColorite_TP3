@@ -18,6 +18,8 @@ int Localizacao::RetornaSinal()
     this->total = this->total - readings[this->readIndex];
     int sig =  analogRead(this->Pino) - LIMIAR_DE_MODULARIZACAO;
     sig = (sig <= 0) ? -sig:sig;
+
+    Serial.println(sig); // DEBUG
     this->readings[this->readIndex] = sig;
     this->total = this->total + this->readings[this->readIndex];
     this->readIndex++;  
