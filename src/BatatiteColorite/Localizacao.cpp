@@ -3,7 +3,7 @@
 #include "Movimentacao.h"
 #include "Configuracao.h"
 
-#define LIMIAR_DE_MODULARIZAO 500
+#define LIMIAR_DE_MODULARIZACAO 500
 
 Localizacao::Localizacao(int pino)
 {
@@ -16,7 +16,7 @@ Localizacao::Localizacao(int pino)
 int Localizacao::RetornaSinal()
 {
     this->total = this->total - readings[this->readIndex];
-    int sig =  analogRead(this->Pino) - LIMIAR_DE_MODULARIZAO;
+    int sig =  analogRead(this->Pino) - LIMIAR_DE_MODULARIZACAO;
     sig = (sig <= 0) ? -sig:sig;
     this->readings[this->readIndex] = sig;
     this->total = this->total + this->readings[this->readIndex];

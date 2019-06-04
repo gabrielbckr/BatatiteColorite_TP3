@@ -38,16 +38,9 @@ void para(){
 
 void anda(int d)
 {
-  LEFT_MOTOR->run(LEFT_MOTOR_FORWARD );
+  LEFT_MOTOR->run(LEFT_MOTOR_FORWARD);
   RIGHT_MOTOR->run(RIGHT_MOTOR_FORWARD);
   delay(d);
-}
-
-void andaComDelay(unsigned long d)
-{
-  double tempoInicio = millis();
-  anda();
-  while(millis() - tempoInicio < d);
 }
 
 void andaReComDelay()
