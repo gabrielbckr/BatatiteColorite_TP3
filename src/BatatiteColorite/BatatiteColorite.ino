@@ -34,8 +34,17 @@ void setup(){
   LEFT_MOTOR->setSpeed(DEFAULT_LEFT__VOLT_SPEED);
   RIGHT_MOTOR->setSpeed(DEFAULT_LEFT__VOLT_SPEED);
 
+/*
+  TestePH2();*/
+  long int now = millis();
 
-  TestePH2();
+  while(millis()-now <15000)
+  {
+    setSpeedWithHisteresis(50, 50);
+    
+  }
+  
+
 } 
 
 void testeDeControle( )
@@ -123,7 +132,7 @@ void controlaRPM(double rightSpeed, double leftSpeed){
     LEFT_MOTOR->setSpeed(leftVelocityOutput);
    
  // }
-delay(500);
+  delay(500);
 }
 
 void TestePH2(){
@@ -175,4 +184,5 @@ void TestePH2(){
 
 void loop()
 {
+  
 }

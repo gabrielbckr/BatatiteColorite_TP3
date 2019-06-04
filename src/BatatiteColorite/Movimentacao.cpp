@@ -139,7 +139,10 @@ void setControledLinearSpeed(int leftSpeed, int rightSpeed ) // 1916.92 * 88.0 /
 
 void setSpeedWithHisteresis(int desiredLeftSpeed, int desiredRightSpeed)
 {
-  if (encoderMotorEsquerda.RetornaRPM() > desiredLeftSpeed)
+  float velocidadeEsquerda =encoderMotorEsquerda.RetornaRPM();
+  float velocidadeDireita = encoderMotorDireita.RetornaRPM(); 
+
+  if (velocidadeEsquerda> desiredLeftSpeed)
   {
     LEFT_MOTOR->setSpeed(0);
   }
@@ -147,13 +150,15 @@ void setSpeedWithHisteresis(int desiredLeftSpeed, int desiredRightSpeed)
   {
     LEFT_MOTOR->setSpeed(255);
   }
-  if (encoderMotorDireita.RetornaRPM() > desiredRightSpeed)
+  if (velocidadeDireita > desiredRightSpeed)
   {
     RIGHT_MOTOR->setSpeed(0);
   }
   else
   {
-    RIGHT_MOTOR->setSpeed(255s);
+    RIGHT_MOTOR->setSpeed(255);
   }
+
+  Serial.print(String(velocidadeEsquerda)+" "+String(velocidadeDireita));
 
 }
